@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.example.apophischatingtest.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#262627">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mainRcv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/chat_enter_cv"/>
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/chat_enter_cv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2c2c2d"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <View
+                android:id="@+id/chat_enter"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/chat_enter_cv"
+                app:layout_constraintBottom_toBottomOf="@id/chat_enter_cv"
+                app:layout_constraintLeft_toLeftOf="@id/chat_enter_cv"
+                app:layout_constraintRight_toRightOf="@id/chat_enter_cv"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/boarder_round_rectangle_black3a3a3b_1dp"/>
+
+            <EditText
+                android:id="@+id/edt_user_chat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxWidth="281dp"
+                android:maxHeight="89dp"
+                app:layout_constraintTop_toTopOf="@id/chat_enter"
+                app:layout_constraintBottom_toBottomOf="@id/chat_enter"
+                app:layout_constraintLeft_toLeftOf="@id/chat_enter"
+                app:layout_constraintRight_toLeftOf="@id/btn_send"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:inputType="textMultiLine"
+                android:text="@={vm.inputUserChat}"
+                android:textSize="13sp"
+                android:fontFamily="@font/sc_dream4"
+                android:lineSpacingExtra="5sp"
+                android:includeFontPadding="false"
+                android:hint="답장을 기다리는 중"
+                android:background="@null"
+                android:textColor="@color/white"
+                android:textColorHint="#707070" />
+
+            <ImageView
+                android:id="@+id/btn_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_send_act"
+                app:layout_constraintBottom_toBottomOf="@id/chat_enter"
+                app:layout_constraintRight_toRightOf="@id/chat_enter"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="3dp"
+                android:onClick="@{() -> vm.getUserChat()}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_send"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:onClick="@{() -> vm.increaseNumber()}"-->
+<!--            android:text="보내기"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/cv"-->
+<!--            app:layout_constraintLeft_toLeftOf="@id/cv"-->
+<!--            app:layout_constraintRight_toRightOf="@id/cv" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
