@@ -6,15 +6,13 @@ import androidx.lifecycle.ViewModel
 import com.example.apophischatingtest.domain.enitity.User
 
 class MainViewModel : ViewModel() {
-    private val _number = MutableLiveData<ArrayList<User>>()
-    val number: LiveData<ArrayList<User>>
+    private val _number = MutableLiveData<MutableList<User>>()
+    val number: LiveData<MutableList<User>>
         get() = _number
 
     val inputUserChat = MutableLiveData<String>()
 
-    private var _count = true
-    val count: Boolean
-        get() = _count
+    private var count = true
     private var userData = ArrayList<User>()
 
     init {
@@ -24,18 +22,12 @@ class MainViewModel : ViewModel() {
                 true
             )
         )
-        _number.value = userData
+        _number.postValue(userData.toMutableList())
     }
-//
-//    fun increaseNumber() {
-//        count += 1
-//        userData.add(User(count.toString(), count % 2))
-//        _number.value = userData
-//    }
 
     fun getUserChat() {
-        _count = !_count
-        userData.add(User(inputUserChat.value!!, _count))
-        _number.value = userData
+        count = !count
+        userData.add(User(inputUserChat.value!!, count))
+        _number.value = userData.toMutableList()
     }
 }

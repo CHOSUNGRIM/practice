@@ -30,10 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun subscribeData() {
         viewModel.number.observe(this) { data ->
-            if (viewModel.count)
-                mainAdapter.initData(data)
-            else
-                mainAdapter.addChat(data)
+            mainAdapter.submitList(data)
         }
     }
 }
