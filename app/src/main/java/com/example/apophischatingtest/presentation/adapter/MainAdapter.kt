@@ -1,17 +1,13 @@
-package com.example.apophischatingtest
+package com.example.apophischatingtest.presentation.adapter
 
 import android.animation.Animator
-import android.media.MediaPlayer
-import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
-import com.airbnb.lottie.LottieAnimationView
+import com.example.apophischatingtest.R
+import com.example.apophischatingtest.domain.enitity.User
 import com.example.apophischatingtest.databinding.ItemChatAponymousBinding
-import com.example.apophischatingtest.databinding.ItemChatLoadingBinding
 import com.example.apophischatingtest.databinding.ItemChatUserBinding
 
 class MainAdapter : androidx.recyclerview.widget.ListAdapter<User, ViewHolder>(MainDiffCallback) {
@@ -21,8 +17,8 @@ class MainAdapter : androidx.recyclerview.widget.ListAdapter<User, ViewHolder>(M
     }
 
     companion object {
-        const val APONYMOUS = 0
-        const val USER = 1
+        const val APONYMOUS = true
+        const val USER = false
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

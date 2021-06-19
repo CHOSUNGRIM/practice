@@ -1,6 +1,7 @@
-package com.example.apophischatingtest
+package com.example.apophischatingtest.presentation.adapter
 
 import androidx.recyclerview.widget.DiffUtil
+import com.example.apophischatingtest.domain.enitity.User
 
 object MainDiffCallback : DiffUtil.ItemCallback<User>() {
     override fun areItemsTheSame(
